@@ -22,6 +22,10 @@ public class Product {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    public Product(){
+
+    }
+
     public Product(Long id, String name, Double price, Department department) {
         this.id = id;
         this.name = name;
@@ -44,6 +48,4 @@ public class Product {
     public Department getDepartment() {
         return department;
     }
-
-
 }

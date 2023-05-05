@@ -15,6 +15,10 @@ public class Department {
     private Long id;
     private String name;
 
+    public Department(){
+        
+    }
+
     public Department(Long id, String name) {
         setId(id);
         setName(name);
