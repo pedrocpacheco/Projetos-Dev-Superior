@@ -37,14 +37,15 @@ public class Aulao005Application implements CommandLineRunner{
 
 		cat1.addProducts(Arrays.asList(p1, p3));
 		cat1.addProducts(Arrays.asList(p2, p4));
+		
+		categoryRepository.save(cat1);
+		categoryRepository.save(cat2);
 
 		productRepository.save(p1);
 		productRepository.save(p2);
 		productRepository.save(p3);
 		productRepository.save(p4);
 
-		categoryRepository.save(cat1);
-		categoryRepository.save(cat2);
 	}
 
 }

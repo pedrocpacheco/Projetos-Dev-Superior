@@ -27,7 +27,7 @@ public class ProductResource {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Product> findById(@PathVariable Long id){
-        Product product = productRepository.findById(id);
+        Product product = productRepository.findById(id).get(); // !!!- .get() necessario pois o findByID retorna um Optional (que pode ou nao ter um obj) Com o .get() pegamos o obj do Optional
         return ResponseEntity.ok().body(product);
     }
 
