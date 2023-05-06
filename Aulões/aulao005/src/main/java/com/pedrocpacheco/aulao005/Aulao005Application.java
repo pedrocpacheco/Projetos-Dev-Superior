@@ -27,13 +27,13 @@ public class Aulao005Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		Category cat1 = new Category(1L, "Tech");
-		Category cat2 = new Category(2L, "Books");
+		Category cat1 = new Category(null, "Tech");
+		Category cat2 = new Category(null, "Books");
 
-		Product p1 = new Product(1L, "TV", 2000.0, cat1);
-		Product p2 = new Product(2L, "DDD", 120.0, cat2);
-		Product p3 = new Product(3L, "PS5", 2800.0, cat1);
-		Product p4 = new Product(4L, "Docker", 80.0, cat2);
+		Product p1 = new Product(null, "TV", 2000.0, cat1);
+		Product p2 = new Product(null, "DDD", 120.0, cat2);
+		Product p3 = new Product(null, "PS5", 2800.0, cat1);
+		Product p4 = new Product(null, "Docker", 80.0, cat2);
 
 		cat1.addProducts(Arrays.asList(p1, p3));
 		cat1.addProducts(Arrays.asList(p2, p4));
