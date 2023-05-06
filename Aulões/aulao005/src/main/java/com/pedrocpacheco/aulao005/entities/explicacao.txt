@@ -1,0 +1,1 @@
+Entities são basicamente as Classes por si só, as entidades da nossa aplicação.
