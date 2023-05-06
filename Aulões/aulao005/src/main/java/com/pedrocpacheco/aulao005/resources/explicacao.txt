@@ -1,0 +1,1 @@
+Os resources são responsaveis por pegar os conteudos e responder na API.

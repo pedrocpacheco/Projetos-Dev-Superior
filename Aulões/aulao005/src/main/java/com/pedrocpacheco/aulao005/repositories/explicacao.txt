@@ -1,0 +1,1 @@
+Os repositories são responsaveis por acessar os dados referente a sua entidade

@@ -1,7 +1,10 @@
 package com.pedrocpacheco.aulao005.entities;
 
-public class Category {
-    
+import java.io.Serializable;
+
+public class Category implements Serializable{
+    private static final long serialVersionUID = 1L;
+
     private Long id; // Wrapper permite nulo -> Melhor que primitivo
     private String name;
 
@@ -14,8 +17,21 @@ public class Category {
         this.name = name;
     }
 
-    
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public int hashCode() {
