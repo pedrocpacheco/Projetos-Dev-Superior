@@ -1,12 +1,20 @@
 package com.pedrocpacheco.aulao005.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Category implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private Long id; // Wrapper permite nulo -> Melhor que primitivo
     private String name;
+
+    @JsonIgnore
+    private List<Product> products = new ArrayList<>();
 
     public Category(){
         
@@ -31,6 +39,14 @@ public class Category implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Product> getProducts() {
+        return Collections.unmodifiableList(products);
+    }
+
+    public void addProducts(List<Product> products){
+        this.products.addAll(products);
     }
 
     @Override
