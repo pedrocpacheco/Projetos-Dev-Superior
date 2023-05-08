@@ -29,13 +29,6 @@ public class User {
 
     }
 
-    public User(Long id, String name, String email, Department department) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.department = department;
-    }
-
     public Long getId() {
         return id;
     }
