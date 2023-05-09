@@ -2,7 +2,6 @@ package com.pedrocpacheco.dslist.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,14 +17,18 @@ public class GameDTOService {
     private GameRepository repository; // Injetando o GameRepository
 
     public List<GameMinDto> findAll(){
+
+        // Criando Lista de Games
         List<Game> result = repository.findAll();
+
+        // Passando lista de games para Lista de GameMinDto
         List<GameMinDto> resultDto = new ArrayList<>();
 
-        // Não tem como usar MF pois tem logica 
+        // Pode-se usar Lambda (method reference somente não)
         result.forEach(game -> resultDto.add(new GameMinDto(game)));
 
         // Mas pode-se usar os streams
-        return result.stream().map(GameMinDto::new).collect(Collectors.toList());
+        return result.stream().map(GameMinDto::new).toList();
     }
 
 }
