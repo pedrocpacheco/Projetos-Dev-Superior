@@ -5,7 +5,7 @@ package com.pedrocpacheco.dslist.dto;
 import com.pedrocpacheco.dslist.entities.Game;
 import com.pedrocpacheco.dslist.projections.GameMinProjection;
 
-public class GameMinDto {
+public class GameMinDTO {
     
     private Long id;
     private String title;
@@ -13,12 +13,12 @@ public class GameMinDto {
     private String imgUrl;
     private String shortDescription;
 
-    public GameMinDto (){
+    public GameMinDTO (){
 
     }
 
     // We will construct our DTO using a Game info
-    public GameMinDto(Game entity){
+    public GameMinDTO(Game entity){
         id = entity.getId();
         title = entity.getTitle();
         year = entity.getYear();
@@ -26,7 +26,7 @@ public class GameMinDto {
         shortDescription = entity.getShortDescription();
     }
 
-    public GameMinDto(GameMinProjection projection){
+    public GameMinDTO(GameMinProjection projection){
         id = projection.getId();
         title = projection.getTitle();
         year = projection.getYear();
@@ -53,7 +53,5 @@ public class GameMinDto {
     public String getShortDescription() {
         return shortDescription;
     }
-
-    
 
 }

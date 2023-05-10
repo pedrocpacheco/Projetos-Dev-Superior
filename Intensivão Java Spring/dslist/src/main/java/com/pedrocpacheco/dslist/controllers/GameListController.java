@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pedrocpacheco.dslist.dto.GameListDTO;
-import com.pedrocpacheco.dslist.dto.GameMinDto;
+import com.pedrocpacheco.dslist.dto.GameMinDTO;
 import com.pedrocpacheco.dslist.entities.GameList;
 import com.pedrocpacheco.dslist.services.GameListService;
 import com.pedrocpacheco.dslist.services.GameService;
@@ -35,8 +35,8 @@ public class GameListController {
     }
     
     @GetMapping(value ="/{listId}/games")
-    public List<GameMinDto> findByList(@PathVariable Long listId){
-        List<GameMinDto> result = gameService.finByList(listId);
+    public List<GameMinDTO> findByList(@PathVariable Long listId){
+        List<GameMinDTO> result = gameService.finByList(listId);
         return result;
     }
 

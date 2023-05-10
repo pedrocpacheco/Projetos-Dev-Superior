@@ -1,6 +1,5 @@
 package com.pedrocpacheco.dslist.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pedrocpacheco.dslist.dto.GameDTO;
-import com.pedrocpacheco.dslist.dto.GameMinDto;
+import com.pedrocpacheco.dslist.dto.GameMinDTO;
 import com.pedrocpacheco.dslist.entities.Game;
 import com.pedrocpacheco.dslist.projections.GameMinProjection;
 import com.pedrocpacheco.dslist.repository.GameRepository;
@@ -26,24 +25,14 @@ public class GameService {
     }
 
     @Transactional(readOnly = true)
-    public List<GameMinDto> findAll(){
-
-        // Criando Lista de Games
+    public List<GameMinDTO> findAll(){
         List<Game> result = repository.findAll();
-
-        // Passando lista de games para Lista de GameMinDto
-        List<GameMinDto> resultDto = new ArrayList<>();
-
-        // Pode-se usar Lambda (method reference somente não)
-        result.forEach(game -> resultDto.add(new GameMinDto(game)));
-
-        // Mas pode-se usar os streams
-        return result.stream().map(GameMinDto::new).toList();
+        return result.stream().map(GameMinDTO::new).toList();
     }
 
     @Transactional(readOnly = true)
-    public List<GameMinDto> finByList(Long listId){
+    public List<GameMinDTO> finByList(Long listId){
         List<GameMinProjection> resultList = repository.searchByList(listId);
-        return resultList.stream().map(GameMinDto::new).toList();
+        return resultList.stream().map(GameMinDTO::new).toList(); // Cria GameMinDtos, com base nos GameMinProjections, que nada mais são, do que DTOS formados com base na chamada especifica do BD
     }
 }
