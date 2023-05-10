@@ -5,16 +5,24 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.pedrocpacheco.dslist.dto.GameDTO;
 import com.pedrocpacheco.dslist.dto.GameMinDto;
 import com.pedrocpacheco.dslist.entities.Game;
 import com.pedrocpacheco.dslist.repository.GameRepository;
 
 @Service
-public class GameDTOService {
+public class GameService {
     
     @Autowired // Inicializando automaticamente
     private GameRepository repository; // Injetando o GameRepository
+
+    @Transactional(readOnly = true) // Boa pratica, diz que so estamos lendo
+    public GameDTO findById(Long id){ 
+        GameDTO gameDTO = new GameDTO(repository.findById(id).get());
+        return gameDTO;
+    }
 
     public List<GameMinDto> findAll(){
 
