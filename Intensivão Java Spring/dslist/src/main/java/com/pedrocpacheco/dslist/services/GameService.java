@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.pedrocpacheco.dslist.dto.GameDTO;
 import com.pedrocpacheco.dslist.dto.GameMinDto;
 import com.pedrocpacheco.dslist.entities.Game;
+import com.pedrocpacheco.dslist.projections.GameMinProjection;
 import com.pedrocpacheco.dslist.repository.GameRepository;
 
 @Service
@@ -24,6 +25,7 @@ public class GameService {
         return gameDTO;
     }
 
+    @Transactional(readOnly = true)
     public List<GameMinDto> findAll(){
 
         // Criando Lista de Games
@@ -39,4 +41,9 @@ public class GameService {
         return result.stream().map(GameMinDto::new).toList();
     }
 
+    @Transactional(readOnly = true)
+    public List<GameMinProjection> finByList(Long listId){
+        List<GameMinProjection> result = repository.searchByList(listId);
+        return result;
+    }
 }
