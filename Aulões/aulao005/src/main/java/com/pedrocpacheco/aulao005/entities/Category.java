@@ -20,7 +20,7 @@ public class Category implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // Wrapper permite nulo -> Melhor que primitivo
-    private String name//yihbsbifbni;
+    private String name;
 
     @JsonIgnore           // Diz o nome do atributo da classe Product
     @OneToMany(mappedBy = "category")
