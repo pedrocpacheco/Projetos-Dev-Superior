@@ -6,7 +6,7 @@ public interface GameMinProjection {
     // Metodos Get para cada dato que a consulta esta buscando
     Long getId();
     String getTitle();
-    Integer getYear();
+    Integer getGameYear();
     String getImgUrl();
     String getShortDescription();
     Integer getPosition();
