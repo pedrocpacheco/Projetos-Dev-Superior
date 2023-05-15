@@ -32,10 +32,18 @@ public class GameListService {
         return result;
     }
 
-    public void move(Long id, int sourceIndex, int destinationIndex){
-        List<GameMinProjection> list = gameRepository.searchByList(id);
+    public void move(Long listId, int sourceIndex, int destinationIndex){
+        List<GameMinProjection> list = gameRepository.searchByList(listId);
         GameMinProjection removed = list.remove(sourceIndex);
         list.add(destinationIndex, removed);
+
+        int min = sourceIndex < destinationIndex ? sourceIndex : destinationIndex;
+        int max = sourceIndex < destinationIndex ? destinationIndex : sourceIndex;
+
+        for (int i = min; i < max; i++){
+            repository.updateBelongingPosition(listId, list.get(i).getId(), i);
+        }
+
     }
 
 }
