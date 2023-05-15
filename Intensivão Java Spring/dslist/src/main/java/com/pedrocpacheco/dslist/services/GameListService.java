@@ -32,6 +32,7 @@ public class GameListService {
         return result;
     }
 
+    @Transactional
     public void move(Long listId, int sourceIndex, int destinationIndex){
         List<GameMinProjection> list = gameRepository.searchByList(listId);
         GameMinProjection removed = list.remove(sourceIndex);

@@ -11,7 +11,7 @@ public class WebConfig {
 	@Value("${cors.origins}")
 	private String corsOrigins;
 	
-	@Bean
+	//@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
