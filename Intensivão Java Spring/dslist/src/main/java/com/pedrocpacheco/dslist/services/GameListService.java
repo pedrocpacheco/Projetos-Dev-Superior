@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pedrocpacheco.dslist.dto.GameListDTO;
 import com.pedrocpacheco.dslist.entities.GameList;
+import com.pedrocpacheco.dslist.projections.GameMinProjection;
 import com.pedrocpacheco.dslist.repository.GameListRepository;
 import com.pedrocpacheco.dslist.repository.GameRepository;
 
@@ -33,6 +34,8 @@ public class GameListService {
 
     public void move(Long id, int sourceIndex, int destinationIndex){
         List<GameMinProjection> list = gameRepository.searchByList(id);
+        GameMinProjection removed = list.remove(sourceIndex);
+        list.add(destinationIndex, removed);
     }
 
 }
