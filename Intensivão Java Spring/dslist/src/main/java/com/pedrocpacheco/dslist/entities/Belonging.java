@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 // Essa classe é justamente a relação de N para N, que vai ter seus
 // Proprios atributos (Vimos isso em Banco de Dados)
 @Entity
-@Table(name = "tb_belonging")
+@Table(name = "belonging")
 public class Belonging {
     
     // Duas entidades que se relacionam
